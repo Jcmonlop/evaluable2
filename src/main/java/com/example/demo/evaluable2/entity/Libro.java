@@ -1,9 +1,19 @@
-package com.example.demo.evaluable2.model;
+package com.example.demo.evaluable2.entity;
 
-public class Libros {
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="libros")
+public class Libro {
 
 	// propiedades
-
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String nombre;
 	private String autor;
 	private String editorial;
@@ -13,7 +23,7 @@ public class Libros {
 
 	// constructor
 
-	public Libros(String nombre, String autor, String editorial, int año, int numeroDePaginas, int cantidad) {
+	public Libro(String nombre, String autor, String editorial, int año, int numeroDePaginas, int cantidad) {
 		this.nombre = nombre;
 		this.autor = autor;
 		this.editorial = editorial;
@@ -71,4 +81,5 @@ public class Libros {
 	public void setCantidad(int cantidad) {
 		this.cantidad = cantidad;
 	}
+	
 }
