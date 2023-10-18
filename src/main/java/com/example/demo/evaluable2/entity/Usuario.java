@@ -1,32 +1,28 @@
 package com.example.demo.evaluable2.entity;
 
-import java.time.LocalDate;
-
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.format.annotation.DateTimeFormat.ISO;
-
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+
 @Entity
 @Table(name="usuarios")
 public class Usuario {
+	
 	@Id
+	private int id;
 	private String nombre;
 	private String apellido;
 	private String email;
 	
-	@Column(name="create_at")
-	@DateTimeFormat(iso=ISO.DATE)
-	private LocalDate createAt;
+	public Usuario() {
+		
+	}
 	
-	
-	public Usuario(String nombre, String apellido, String email, LocalDate createAt) {
+	public Usuario(int id, String nombre, String apellido, String email) {
+		this.id = id;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.email = email;
-		this.createAt = createAt;
 	}
 
 	public String getNombre() {
@@ -53,15 +49,13 @@ public class Usuario {
 		this.email = email;
 	}
 
-	public LocalDate getCreateAt() {
-		return createAt;
+	public int getId() {
+		return id;
 	}
 
-	public void setCreatAt(LocalDate createAt) {
-		this.createAt = createAt;
-	}
-	
-	
+	public void setId(int id) {
+		this.id = id;
+	}	
 	
 	
 }

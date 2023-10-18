@@ -11,7 +11,7 @@ import com.example.demo.evaluable2.entity.Usuario;
 import jakarta.persistence.EntityManager;
 
 @Repository
-public class UsuarioDAO {
+public class UsuarioRepository {
 	@Autowired
 	private EntityManager em;
 

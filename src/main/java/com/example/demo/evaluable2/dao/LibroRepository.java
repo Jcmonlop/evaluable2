@@ -5,13 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.example.demo.evaluable2.entity.Libro;
 
 import jakarta.persistence.EntityManager;
 
 @Repository
-public class LibroDAO {
+public class LibroRepository {
 	@Autowired
 	private EntityManager em;
 
