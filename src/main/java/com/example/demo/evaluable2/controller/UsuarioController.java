@@ -1,7 +1,5 @@
 package com.example.demo.evaluable2.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +16,7 @@ public class UsuarioController {
 	private UsuarioRepository usuarioRepository;
 	@GetMapping("/all")
 	public String m(Model model) {
-		List<Usuario> usuarios = usuarioRepository.findAll();
+		Iterable<Usuario> usuarios = usuarioRepository.findAll();
 		model.addAttribute("usuarios", usuarios);
 		model.addAttribute("titulo", "Listado de usuarios");
 		return "usuario/listar";
