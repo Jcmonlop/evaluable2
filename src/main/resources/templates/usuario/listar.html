@@ -32,7 +32,13 @@
 			</div>
 		</div>
 	</nav>
+	<div class="alert alert-success" th:if="${success != null}" th:text="${success}"></div>
+	<div class="alert alert-error" th:if="${error != null}" th:text="${error}"></div>
+	<div class="alert alert-warning" th:if="${warning != null}" th:text="${warning}"></div>
+	<div class="alert alert-info" th:if="${info != null}" th:text="${info}"></div>
 
+	<a th:href="@{/usuario/form-u}" style="text-decoration: none;">Añadir usuario</a>
+	<p th:text="'Total de usuarios: ' + ${usuarios.size}"></p>
 
 	<!-- Todos los class son de bootstrap -->
 	<div class="container">
@@ -56,7 +62,7 @@
 					<td th:text="${usuario.email}"></td>
 					<td>
 				<a th:href="@{/usuario/borrar/} + ${usuario.id}" style="text-decoration: none;color: red;">BORRAR</a>
-				<a th:href="@{/usuario/form-a/} + ${usuario.id}" style="text-decoration: none;">EDITAR</a>
+				<a th:href="@{/usuario/form-u/} + ${usuario.id}" style="text-decoration: none;color: green;">EDITAR</a>
 			</td>
 				</tr>
 			</tbody>

@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title th:text="${titulo}"></title>
 </head>
 <body>
-
+<h1 th:text="${tituloH1}"></h1>
+<form th:action="@{/libro/form-l}" th:object="${libro}" method="post">
+	Nombre
+	<input type="text" th:field="*{nombre}">
+	<br>
+	Autor
+	<input type="text" th:field="*{autor}">
+	<br>
+	Año
+	<input type="text" th:field="*{fecha}">
+	<br>
+	Cantidad
+	<input type="text" th:field="*{cantidad}">
+	<br>
+	
+	<input type="submit" value="Guardar">
+	
+	<input type="hidden" th:field="*{id}">
+	
+	
+</form>
 </body>
 </html>

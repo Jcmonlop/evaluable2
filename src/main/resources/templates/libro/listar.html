@@ -32,6 +32,12 @@
 			</div>
 		</div>
 	</nav>
+	<div class="alert alert-success" th:if="${success != null}" th:text="${success}"></div>
+	<div class="alert alert-error" th:if="${error != null}" th:text="${error}"></div>
+	<div class="alert alert-warning" th:if="${warning != null}" th:text="${warning}"></div>
+	<div class="alert alert-info" th:if="${info != null}" th:text="${info}"></div>
+	<a th:href="@{/libro/form-l}" style="text-decoration: none;">Añadir libro</a>
+	<p th:text="'Total de libros: ' + ${libros.size}"></p>
 	<!-- Todos los class son de bootstrap -->
 	<div class="container">
 		<h1 class="text-primary" th:text="${titulo}"></h1>
@@ -51,18 +57,18 @@
 				<tr th:each="libro: ${libros}">
 					<td th:text="${libro.id}"></td>
 					<td th:text="${libro.nombre}"></td>
-					<td th:text="${libro.autor}"></td>
-					<td><a th:text="${libro.fecha}"th:href="@{libro/listar} + '?fecha=' + ${libro.fecha}"></a></td>
+					<td><a th:text="${libro.autor}"th:href="@{/libro/listar} + '?autor=' + ${libro.autor}"></a></td>
+					<td th:text="${libro.fecha}"></td>
 					<td th:text="${libro.cantidad}"></td>
 					<td>
 				<a th:href="@{/libro/borrar/} + ${libro.id}" style="text-decoration: none;color: red;">BORRAR</a>
-				<a th:href="@{/libro/form-a/} + ${libro.id}" style="text-decoration: none;">EDITAR</a>
+				<a th:href="@{/libro/form-l/} + ${libro.id}" style="text-decoration: none;color: green;">EDITAR</a>
 			</td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
-
+	
 	<!-- Script de bootstrap enlazado vía CDN-->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"

@@ -2,6 +2,8 @@ package com.example.demo.evaluable2.entity;
 
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -12,19 +14,20 @@ public class Libro {
 	// propiedades
 	
 	@Id
-	private int id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	private String nombre;
 	private String autor;
-	private int fecha;
-	private int cantidad;
+	private Integer fecha;
+	private Integer cantidad;
 
-	// constructor
+	// constructores
 	
 	public Libro() {
-		
-	}
 
-	public Libro(int id, String nombre, String autor, int fecha, int cantidad) {
+	}
+	
+	public Libro(Long id, String nombre, String autor, Integer fecha, Integer cantidad) {
 		this.id = id;
 		this.nombre = nombre;
 		this.autor = autor;
@@ -33,6 +36,14 @@ public class Libro {
 	}
 
 	// getters y setters
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public String getNombre() {
 		return nombre;
@@ -50,28 +61,20 @@ public class Libro {
 		this.autor = autor;
 	}
 
-	public int getFecha() {
+	public Integer getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(int fecha) {
+	public void setFecha(Integer fecha) {
 		this.fecha = fecha;
 	}
 
-	public int getCantidad() {
+	public Integer getCantidad() {
 		return cantidad;
 	}
 
-	public void setCantidad(int cantidad) {
+	public void setCantidad(Integer cantidad) {
 		this.cantidad = cantidad;
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-	
 }
